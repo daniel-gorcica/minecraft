@@ -29,7 +29,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: -2;
-    background: #3a2a4a url("scene.svg") center bottom / cover no-repeat;
+    background: #3a2a4a url("pozadí.jpg") center center / cover no-repeat;
 }
 
 .petals {
