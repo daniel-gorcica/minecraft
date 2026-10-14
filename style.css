@@ -84,8 +84,8 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 10px 14px 10px 20px;
-    background: rgba(24, 12, 32, 0.65);
+    padding: 10px 16px 10px 20px;
+    background: rgba(24, 12, 32, 0.7);
     border: 1px solid var(--border);
     border-radius: 999px;
     backdrop-filter: blur(16px) saturate(140%);
@@ -115,18 +115,9 @@ body {
 .nav-links {
     display: flex;
     gap: 4px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    max-width: 100%;
-    padding-bottom: 2px;
-}
-
-.nav-links::-webkit-scrollbar {
-    display: none;
 }
 
 .nav-links a {
-    flex-shrink: 0;
     padding: 6px 12px;
     font-size: 0.82rem;
     font-weight: 500;
@@ -141,6 +132,24 @@ body {
 .nav-links a.active {
     color: #fff;
     background: rgba(255, 255, 255, 0.14);
+}
+
+/* Hamburger tlačítko (výchozí skryté na velkých obrazovkách) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: #fff;
+}
+
+.nav-toggle svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
 }
 
 .hero {
@@ -482,10 +491,39 @@ tr:hover td {
     transform: none;
 }
 
-@media (max-width: 768px) {
-    .nav {
-        top: 10px;
-        padding-left: 14px;
+/* Responzivní mobilní menu (hamburger) */
+@media (max-width: 820px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        background: rgba(24, 12, 32, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 16px;
+        flex-direction: column;
+        gap: 8px;
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        display: none;
+        /* ve výchozím stavu na mobilu skryté */
+    }
+
+    .nav-links.open {
+        display: flex;
+        /* po kliknutí se zobrazí pod sebou */
+    }
+
+    .nav-links a {
+        padding: 10px 14px;
+        text-align: center;
+        width: 100%;
     }
 
     .nav-logo::before {

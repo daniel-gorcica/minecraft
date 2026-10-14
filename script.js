@@ -1,24 +1,29 @@
 document.documentElement.classList.add('js');
 
-const petals = document.querySelector('.petals');
-for (let i = 0; i < 30; i++) {
-  const p = document.createElement('span');
-  p.style.left = Math.random() * 100 + '%';
-  p.style.animationDuration = 8 + Math.random() * 8 + 's';
-  p.style.animationDelay = -Math.random() * 16 + 's';
-  p.style.setProperty('--size', 6 + Math.random() * 6 + 'px');
-  petals.append(p);
+// Hamburger menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+
+    // Zavřít menu po kliknutí na jakýkoliv odkaz v mobilním zobrazení
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+        });
+    });
 }
 
-const watcher = new IntersectionObserver(items => {
-  items.forEach(item => {
-    if (item.isIntersecting) item.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => watcher.observe(el));
+// Reveal animace při scrollování
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
 
-if (location.protocol.startsWith('http')) {
-  const page = encodeURIComponent(location.href.split('#')[0]);
-  document.getElementById('val-html').href = 'https://validator.w3.org/nu/?doc=' + page;
-  document.getElementById('val-css').href = 'https://jigsaw.w3.org/css-validator/validator?uri=' + page + '&profile=css3svg&usermedium=all&warning=1&lang=cs';
-}
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
