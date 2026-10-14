@@ -9,7 +9,7 @@ if (navToggle && navLinks) {
         navLinks.classList.toggle('open');
     });
 
-    // Zavřít menu po kliknutí na jakýkoliv odkaz v mobilním zobrazení
+    // Zavřít menu po kliknutí na odkaz v mobilním zobrazení
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('open');

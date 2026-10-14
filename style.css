@@ -30,7 +30,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: -2;
-    background: #3a2a4a url("pozadi.png") center center / cover no-repeat;
+    background: #3a2a4a url("pozadí.jpg") center center / cover no-repeat;
 }
 
 .petals {
@@ -134,7 +134,6 @@ body {
     background: rgba(255, 255, 255, 0.14);
 }
 
-/* Hamburger tlačítko (výchozí skryté na velkých obrazovkách) */
 .nav-toggle {
     display: none;
     background: none;
@@ -491,7 +490,6 @@ tr:hover td {
     transform: none;
 }
 
-/* Responzivní mobilní menu (hamburger) */
 @media (max-width: 820px) {
     .nav-toggle {
         display: block;
@@ -512,12 +510,10 @@ tr:hover td {
         -webkit-backdrop-filter: blur(18px);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         display: none;
-        /* ve výchozím stavu na mobilu skryté */
     }
 
     .nav-links.open {
         display: flex;
-        /* po kliknutí se zobrazí pod sebou */
     }
 
     .nav-links a {
