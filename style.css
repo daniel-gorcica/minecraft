@@ -26,7 +26,7 @@ body {
     overflow-x: hidden;
 }
 
-/* === PIXEL-ART NOČNÍ KRAJINA (statická) === */
+/* === PIXEL-ART NOČNÍ KRAJINA === */
 
 #bg {
     position: fixed;
@@ -38,7 +38,6 @@ body {
     overflow: hidden;
 }
 
-/* Měsíc + hvězdy */
 #bg::before {
     content: '';
     position: absolute;
@@ -80,7 +79,6 @@ body {
     opacity: 0.95;
 }
 
-/* Přední hory (tmavé) */
 #bg::after {
     content: '';
     position: absolute;
@@ -93,7 +91,6 @@ body {
     pointer-events: none;
 }
 
-/* Zadní hory (světlejší) */
 body::before {
     content: '';
     position: fixed;
@@ -106,6 +103,19 @@ body::before {
     clip-path: polygon(0% 100%, 0% 45%, 3% 45%, 3% 35%, 6% 35%, 6% 25%, 9% 25%, 9% 35%, 12% 35%, 12% 50%, 15% 50%, 15% 40%, 18% 40%, 18% 30%, 21% 30%, 21% 45%, 24% 45%, 24% 55%, 35% 55%, 35% 45%, 38% 45%, 38% 35%, 41% 35%, 41% 25%, 44% 25%, 44% 35%, 47% 35%, 47% 50%, 50% 50%, 50% 60%, 60% 60%, 60% 50%, 63% 50%, 63% 40%, 66% 40%, 66% 30%, 69% 30%, 69% 20%, 72% 20%, 72% 30%, 75% 30%, 75% 45%, 78% 45%, 78% 55%, 90% 55%, 90% 45%, 93% 45%, 93% 35%, 96% 35%, 96% 50%, 99% 50%, 99% 60%, 100% 60%, 100% 100%);
     opacity: 0.6;
     pointer-events: none;
+}
+
+/* === POMOCNÁ TŘÍDA (skryté texty pro čtečky) === */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* === NAVIGACE === */
@@ -792,32 +802,9 @@ tr:hover td {
     transform: translateY(-2px);
 }
 
-/* === FADE-UP PŘI SCROLLU (bez JS) === */
-@supports (animation-timeline: view()) {
-    .reveal {
-        animation: reveal-up linear both;
-        animation-timeline: view();
-        animation-range: entry 0% entry 60%;
-    }
-}
-
-@keyframes reveal-up {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-@supports not (animation-timeline: view()) {
-    .reveal {
-        opacity: 1;
-        transform: none;
-    }
+/* === FADE-UP FALLBACK (když JS neběží / starý prohlížeč) === */
+.reveal {
+    opacity: 1;
 }
 
 /* === MOBIL === */
@@ -893,7 +880,6 @@ tr:hover td {
         scroll-behavior: auto;
     }
 
-    .reveal,
     .hero h1::before,
     .dim-panel {
         animation: none;

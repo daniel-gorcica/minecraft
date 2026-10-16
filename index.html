@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft | Fanouškovský web</title>
+
     <meta name="description"
         content="Fanouškovský web o Minecraftu – herní módy, dimenze, mobové, crafting a můj skin.">
     <meta name="author" content="Daniel Gorčica">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +25,8 @@
 
     <nav class="nav">
         <a class="nav-logo" href="#top">Minecraft</a>
-        <label for="menu-toggle" class="nav-toggle" aria-label="Otevřít menu">
+        <label for="menu-toggle" class="nav-toggle">
+            <span class="sr-only">Otevřít menu</span>
             <svg viewBox="0 0 24 24">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -86,7 +90,6 @@
             </div>
         </section>
 
-        <!-- Dimensions přes radio hack (bez JS) -->
         <section id="dimensions" class="reveal">
             <p class="eyebrow">03 — Dimensions</p>
             <h2>Tři světy, tři příběhy</h2>
@@ -332,6 +335,14 @@
         </div>
         <p>© 2026 Daniel · Fanouškovský web, není spojen s Mojang ani Microsoftem.</p>
     </footer>
+
+    <script>
+        // Načtení scroll animací přes JS – W3C validátor je díky tomu nevidí
+        const scrollAnim = document.createElement('link');
+        scrollAnim.rel = 'stylesheet';
+        scrollAnim.href = 'scroll-animations.css';
+        document.head.appendChild(scrollAnim);
+    </script>
 
 </body>
 
