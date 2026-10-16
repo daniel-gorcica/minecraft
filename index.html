@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft</title>
+    <title>Minecraft | Fanouškovský web</title>
+    <meta name="description"
+        content="Fanouškovský web o Minecraftu – herní módy, dimenze, mobové, crafting a můj skin.">
+    <meta name="author" content="Daniel Gorčica">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,23 +16,25 @@
 <body>
 
     <div id="bg"></div>
-    <div class="petals"></div>
+
+    <!-- Menu přes checkbox hack (bez JS) -->
+    <input type="checkbox" id="menu-toggle" hidden>
 
     <nav class="nav">
         <a class="nav-logo" href="#top">Minecraft</a>
-        <button class="nav-toggle" aria-label="Otevřít menu">
+        <label for="menu-toggle" class="nav-toggle" aria-label="Otevřít menu">
             <svg viewBox="0 0 24 24">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
-        </button>
+        </label>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#modes">Game Modes</a>
+            <a href="#dimensions">Dimensions</a>
             <a href="#mobs">Mobs</a>
             <a href="#crafting">Crafting</a>
-            <a href="#builds">Builds</a>
             <a href="#skin">Skin</a>
             <a href="#links">Links</a>
         </div>
@@ -46,60 +52,190 @@
             </div>
         </header>
 
-        <section id="about">
+        <section id="about" class="reveal">
             <p class="eyebrow">01 — About</p>
             <h2>Svět z kostek</h2>
-            <div class="glass reveal">
+            <div class="glass">
                 <p>Minecraft je sandboxová hra, ve které si můžeš postavit prakticky cokoli. Svět se skládá z kostek
                     (bloků), které můžeš těžit, skládat a vyrábět z nich nové věci.</p>
-                <p>Hru vytvořil Markus „Notch“ Persson a v roce 2011 vyšla její plná verze. Dnes patří mezi
+                <p>Hru vytvořil Markus „Notch" Persson a v roce 2011 vyšla její plná verze. Dnes patří mezi
                     nejprodávanější hry na světě.</p>
             </div>
         </section>
 
-        <section id="modes">
+        <section id="modes" class="reveal">
             <p class="eyebrow">02 — Game Modes</p>
             <h2>Jak můžeš hrát</h2>
             <div class="grid">
-                <article class="glass card reveal">
+                <article class="glass card">
                     <h3>Survival</h3>
                     <p>Sbíráš suroviny, vyrábíš nástroje a bojuješ o přežití.</p>
                 </article>
-                <article class="glass card reveal">
+                <article class="glass card">
                     <h3>Creative</h3>
                     <p>Máš všechny bloky k dispozici, umíš létat a můžeš jen stavět.</p>
                 </article>
-                <article class="glass card reveal">
+                <article class="glass card">
                     <h3>Adventure</h3>
-                    <p>Hraješ mapy vytvořené jinými hráči a nemůžeš libovolně ničit svět.</p>
+                    <p>Hraješ mapy vytvořené jinými hráči a nemůžeš ničit svět.</p>
                 </article>
-                <article class="glass card reveal">
+                <article class="glass card">
                     <h3>Hardcore</h3>
                     <p>Jako Survival, ale máš jen jeden život. Po smrti svět končí.</p>
                 </article>
             </div>
         </section>
 
-        <section id="mobs">
-            <p class="eyebrow">03 — Mobs</p>
+        <!-- Dimensions přes radio hack (bez JS) -->
+        <section id="dimensions" class="reveal">
+            <p class="eyebrow">03 — Dimensions</p>
+            <h2>Tři světy, tři příběhy</h2>
+            <p class="section-lead">Klikni na jednu ze tří dimenzí a zjisti, co v ní čeká.</p>
+
+            <div class="dim-section">
+                <input type="radio" name="dim" id="dim-overworld" checked hidden>
+                <input type="radio" name="dim" id="dim-nether" hidden>
+                <input type="radio" name="dim" id="dim-end" hidden>
+
+                <div class="dim-tabs">
+                    <label for="dim-overworld" class="dim-tab dim-tab-overworld">
+                        <span class="dim-tab-icon">🌳</span>
+                        <span class="dim-tab-text">
+                            <strong>Overworld</strong>
+                            <small>Domov</small>
+                        </span>
+                    </label>
+                    <label for="dim-nether" class="dim-tab dim-tab-nether">
+                        <span class="dim-tab-icon">🔥</span>
+                        <span class="dim-tab-text">
+                            <strong>Nether</strong>
+                            <small>Peklo</small>
+                        </span>
+                    </label>
+                    <label for="dim-end" class="dim-tab dim-tab-end">
+                        <span class="dim-tab-icon">🌌</span>
+                        <span class="dim-tab-text">
+                            <strong>The End</strong>
+                            <small>Temnota</small>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="dim-panels">
+                    <article class="dim-panel panel-overworld">
+                        <div class="dim-panel-header">
+                            <span class="dim-panel-icon">🌳</span>
+                            <div>
+                                <p class="dim-panel-subtitle">Overworld — Domov</p>
+                                <h3>Zelený svět, kde všechno začíná</h3>
+                            </div>
+                        </div>
+                        <p class="dim-panel-lead">Overworld je hlavní svět Minecraftu. Najdeš tu lesy, hory, pouště,
+                            oceány i vesnice.</p>
+                        <div class="dim-features">
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">🌲</span>
+                                <h4>Biomy</h4>
+                                <p>Les, poušť, tajga, savana, džungle, oceán, hory.</p>
+                            </div>
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">🏡</span>
+                                <h4>Vesnice</h4>
+                                <p>Obchoduj s vesničany, najdi jejich domy a farmy.</p>
+                            </div>
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">⛏️</span>
+                                <h4>Těžba</h4>
+                                <p>Uhlí, železo, zlato, diamanty a další vzácné rudy.</p>
+                            </div>
+                        </div>
+                        <div class="dim-tip"><strong>💡 Tip:</strong> První noc si postav přístřešek a vyrob pochodně.
+                        </div>
+                    </article>
+
+                    <article class="dim-panel panel-nether">
+                        <div class="dim-panel-header">
+                            <span class="dim-panel-icon">🔥</span>
+                            <div>
+                                <p class="dim-panel-subtitle">Nether — Peklo</p>
+                                <h3>Ohnivá říše lávových jezer</h3>
+                            </div>
+                        </div>
+                        <p class="dim-panel-lead">Nether je nebezpečná dimenze plná lávy, ohně a nepřátel.</p>
+                        <div class="dim-features">
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">🔥</span>
+                                <h4>Lávová jezera</h4>
+                                <p>Pozor, kam šlápneš – láva tě zabije během chvilky.</p>
+                            </div>
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">🏰</span>
+                                <h4>Nether Fortress</h4>
+                                <p>Pevnost s blaze rods a wither skeleton.</p>
+                            </div>
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">💎</span>
+                                <h4>Netherit</h4>
+                                <p>Nejsilnější materiál ve hře – lepší než diamant.</p>
+                            </div>
+                        </div>
+                        <div class="dim-tip"><strong>💡 Tip:</strong> Nether má 1:8 poměr vzdáleností.</div>
+                    </article>
+
+                    <article class="dim-panel panel-end">
+                        <div class="dim-panel-header">
+                            <span class="dim-panel-icon">🌌</span>
+                            <div>
+                                <p class="dim-panel-subtitle">The End — Temnota</p>
+                                <h3>Prázdný vesmír plovoucích ostrovů</h3>
+                            </div>
+                        </div>
+                        <p class="dim-panel-lead">The End je finální dimenze Minecraftu. Čeká tam na tebe Ender
+                            Dragon.</p>
+                        <div class="dim-features">
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">🐉</span>
+                                <h4>Ender Dragon</h4>
+                                <p>Hlavní boss hry. Porazit ho znamená „dokončit" Minecraft.</p>
+                            </div>
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">👁️</span>
+                                <h4>Endermani</h4>
+                                <p>Vysocí tvorové, kteří se teleportují.</p>
+                            </div>
+                            <div class="dim-feature">
+                                <span class="dim-feature-icon">🌆</span>
+                                <h4>End City</h4>
+                                <p>Vzácné město s Shulkery a elytrou – křídly pro let.</p>
+                            </div>
+                        </div>
+                        <div class="dim-tip"><strong>💡 Tip:</strong> Před bojem s drakem si vezmi luk, šípy a hodně
+                            bloků.</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="mobs" class="reveal">
+            <p class="eyebrow">04 — Mobs</p>
             <h2>Obyvatelé světa</h2>
             <div class="grid">
-                <article class="glass card reveal">
+                <article class="glass card">
                     <span class="badge">Friendly</span>
                     <h3>Cow</h3>
                     <p>Dává mléko, maso a kůži.</p>
                 </article>
-                <article class="glass card reveal">
+                <article class="glass card">
                     <span class="badge">Friendly</span>
                     <h3>Sheep</h3>
                     <p>Dává vlnu, kterou můžeš barvit.</p>
                 </article>
-                <article class="glass card reveal">
+                <article class="glass card">
                     <span class="badge badge-red">Hostile</span>
                     <h3>Zombie</h3>
                     <p>Objevuje se v noci a v temných místech.</p>
                 </article>
-                <article class="glass card reveal">
+                <article class="glass card">
                     <span class="badge badge-red">Hostile</span>
                     <h3>Creeper</h3>
                     <p>Tiše se přiblíží a vybuchne.</p>
@@ -107,10 +243,10 @@
             </div>
         </section>
 
-        <section id="crafting">
-            <p class="eyebrow">04 — Crafting</p>
+        <section id="crafting" class="reveal">
+            <p class="eyebrow">05 — Crafting</p>
             <h2>Základní recepty</h2>
-            <div class="glass table-wrap reveal">
+            <div class="glass table-wrap">
                 <table>
                     <tr>
                         <th>Item</th>
@@ -146,20 +282,10 @@
             </div>
         </section>
 
-        <section id="builds">
-            <p class="eyebrow">05 — Builds</p>
-            <h2>Moje stavby</h2>
-            <div class="grid">
-                <div class="glass placeholder reveal">House</div>
-                <div class="glass placeholder reveal">Farm</div>
-                <div class="glass placeholder reveal">Mine</div>
-            </div>
-        </section>
-
-        <section id="skin">
+        <section id="skin" class="reveal">
             <p class="eyebrow">06 — My Skin</p>
             <h2>Můj skin</h2>
-            <div class="glass skin-card reveal">
+            <div class="glass skin-card">
                 <img src="skin.png" alt="Můj Minecraft skin" width="185" height="333">
                 <div>
                     <h3>Tohle jsem já</h3>
@@ -168,13 +294,14 @@
             </div>
         </section>
 
-        <section id="links">
+        <section id="links" class="reveal">
             <p class="eyebrow">07 — Links</p>
             <h2>Užitečné odkazy</h2>
-            <div class="glass reveal">
+            <div class="glass">
                 <ul class="link-list">
                     <li><a href="https://www.minecraft.net/" target="_blank" rel="noopener">Official website →</a></li>
                     <li><a href="https://minecraft.wiki/" target="_blank" rel="noopener">Minecraft Wiki →</a></li>
+                    <li><a href="AI-Citace.md">AI Citace →</a></li>
                 </ul>
             </div>
         </section>
@@ -183,19 +310,20 @@
 
     <footer class="footer">
         <div class="validators">
-            <a class="val" id="val-html" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniel-gorcica.github.io%2Fminecraft%2F" target="_blank"
-                rel="noopener">
+            <a class="val" href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniel-gorcica.github.io%2Fminecraft%2F"
+                target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="16 18 22 12 16 6" />
                     <polyline points="8 6 2 12 8 18" />
                 </svg>
                 Validate HTML
             </a>
-            <a class="val" id="val-css" href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaniel-gorcica.github.io%2Fminecraft%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=cs" target="_blank"
-                rel="noopener">
+            <a class="val"
+                href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaniel-gorcica.github.io%2Fminecraft%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=cs"
+                target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1" />
                     <path d="M16 21h1a2 2 0 0 0 2-2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" />
                 </svg>
@@ -205,7 +333,6 @@
         <p>© 2026 Daniel · Fanouškovský web, není spojen s Mojang ani Microsoftem.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 
 </html>
